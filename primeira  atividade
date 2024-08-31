@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+// Declaração de funções
+int main() {
+    double num1, num2;
+    char op;
+    printf("Digite dois números: ");
+    scanf("%lf %lf", &num1, &num2);
+    
+     printf("Informe a operação: A = Adição, S = Subtração, M = Multiplicação, D = Divisão ");
+    scanf(" %c", &op);
+    if(op =='M'){
+         printf("Call: %.2f",num1*num2);
+    }
+        
+    if(op =='S'){
+        printf("Call: %.2f",num1-num2);
+    }
+        
+    if(op =='A'){
+        printf("Call: %.2f",num1+num2);
+    }
+    if(op =='D'){
+          if ((num2 || num1) == 0) {
+            printf("Call: 0.00");
+        } else {
+        printf("Call: %.2f",num1/num2);
+    } 
+    }
+return 0;
+}
