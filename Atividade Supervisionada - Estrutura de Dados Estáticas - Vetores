@@ -1,0 +1,75 @@
+#include <stdio.h>
+
+// Função para multiplicar os elementos do vetor por um valor X
+void multiplicar_vetor(int vetor[], int n, int valor) {
+    for (int i = 0; i < n; i++) {
+        vetor[i] *= valor;
+    }
+}
+
+// Função para imprimir os elementos do vetor na ordem inversa
+void imprimir_inverso(int vetor[], int n) {
+    printf("Os elementos do vetor na ordem inversa são:\n");
+    for (int i = n - 1; i >= 0; i--) {
+        printf("%d ", vetor[i]);
+    }
+    printf("\n");
+}
+
+// Função para imprimir os elementos do vetor ordenados
+void imprimir_ordenado(int vetor[], int n) {
+    // Ordenação simples por seleção
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (vetor[i] > vetor[j]) {
+                int temp = vetor[i];
+                vetor[i] = vetor[j];
+                vetor[j] = temp;
+            }
+        }
+    }
+
+    printf("Os elementos do vetor ordenados são:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", vetor[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int n, valor;
+
+    // Solicita ao usuário o número de elementos do vetor
+    printf("Digite o número de elementos do vetor: ");
+    scanf("%d", &n);
+
+    // Declara o vetor com tamanho variável
+    int vetor[n];
+
+    // Inicializa o vetor com valores de 1 a n
+    for (int i = 0; i < n; i++) {
+        vetor[i] = i + 1;
+    }
+
+    // Solicita o valor X para multiplicar os elementos do vetor
+    printf("Digite o valor pelo qual multiplicar os elementos do vetor: ");
+    scanf("%d", &valor);
+
+    // Multiplica os elementos do vetor pelo valor informado
+    multiplicar_vetor(vetor, n, valor);
+
+    // Imprime os elementos do vetor multiplicado
+    printf("Os elementos do vetor multiplicados são:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", vetor[i]);
+    }
+    printf("\n");
+
+    // Imprime os elementos do vetor na ordem inversa
+    imprimir_inverso(vetor, n);
+
+    // Imprime os elementos do vetor ordenados
+    imprimir_ordenado(vetor, n);
+
+    return 0;
+}
